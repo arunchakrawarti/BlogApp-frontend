@@ -140,7 +140,7 @@ const Home = () => {
         return <div key={ele._id} className="w-[60%] relative mt-3 bg-blue-300 rounded-lg shadow-md">
 
           <div className='iconsBox absolute z-10 right-6 top-3 flex flex-col justify-center text-center'>
-          <span className='flex justify-center'><FaHeart onClick={()=>handleLikes(ele._id)} color={ele.likes.includes(userStore.user._id)? 'red':''} size={30} /> <sub>{ele.likes.length}</sub> </span>
+          <span className='flex justify-center'><FaHeart onClick={()=>handleLikes(ele._id)} color={ele.likes?.includes(userStore.user?._id)? 'red':''} size={30} /> <sub>{ele.likes?.length}</sub> </span>
           <p>likes</p>
           <GoCommentDiscussion onClick={()=>commentClicked(ele)} size={30} className='mt-3 mx-auto'/>
           <p>comments</p>
@@ -149,8 +149,8 @@ const Home = () => {
           <div className="mt-4">
       <div className="flex items-center">
         <div className="flex items-center ms-5">
-          <img className="object-cover w-10 h-10 rounded-full" src={ele.userId.profilePic} alt="Avatar" />
-          <a href="#" className="mx-2 font-semibold text-black dark:text-gray-200" tabIndex={0} role="link">{ele.userId.name}</a>
+          <img className="object-cover w-10 h-10 rounded-full" src={ele.userId?.profilePic} alt="Avatar" />
+          <a href="#" className="mx-2 font-semibold text-black dark:text-gray-200" tabIndex={0} role="link">{ele.userId?.name}</a>
         </div>
         <span className="mx-1 text-xs text-black dark:text-gray-300">{ formatDistanceToNow(ele.createdAt, { addSuffix: true })}</span>
       </div>
@@ -185,7 +185,7 @@ const Home = () => {
   </div>
   
   <div className='flex items-center gap-2 my-3 mx-5'>
-        <img className=' w-10 h-10 rounded-full' src={userStore.user.profilePic} alt="" />
+        <img className=' w-10 h-10 rounded-full' src={userStore.user?.profilePic} alt="" />
         <input value={commentValue} onChange={handleCommentChanger} type="text" className=' w-full outline-none border-2 border-gray-900 px-4 py-2 rounded-md' placeholder='enter the comments' />
         <button onClick={()=>handleCommentSubmit(ele._id)}><IoSend color='red' size={25}/></button>
         </div>
@@ -229,8 +229,8 @@ const Home = () => {
             key={obj._id}
             className="border p-3 rounded-lg bg-gray-50 shadow-sm"
           >
-            <img src={obj.user.profilePic} className='w-7 h-7 rounded-full mr-5' alt="" />
-            <p className="font-medium">{obj.user.name}</p>
+            <img src={obj.user?.profilePic} className='w-7 h-7 rounded-full mr-5' alt="" />
+            <p className="font-medium">{obj.user?.name}</p>
             <p className="text-gray-700">{obj.text}</p>
           </div>
         ))}
@@ -245,3 +245,5 @@ const Home = () => {
 }
 
 export default Home
+
+
