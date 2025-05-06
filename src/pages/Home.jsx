@@ -137,7 +137,7 @@ const Home = () => {
         //     </div>
         //   </div>
         // </div>
-        return <div className="w-[60%] relative mt-3 bg-blue-300 rounded-lg shadow-md">
+        return <div key={ele._id} className="w-[60%] relative mt-3 bg-blue-300 rounded-lg shadow-md">
 
           <div className='iconsBox absolute z-10 right-6 top-3 flex flex-col justify-center text-center'>
           <span className='flex justify-center'><FaHeart onClick={()=>handleLikes(ele._id)} color={ele.likes.includes(userStore.user._id)? 'red':''} size={30} /> <sub>{ele.likes.length}</sub> </span>
