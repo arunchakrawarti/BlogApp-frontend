@@ -27,7 +27,7 @@ const Home = () => {
     //  console.log(data)
      setAllPosts(res.data.post)
   }
-
+  
   useEffect(()=>{
     getAllUserPost()
   },[])
