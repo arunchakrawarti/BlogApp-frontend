@@ -3,7 +3,7 @@ import { Button, Modal } from 'antd';
 import axios from 'axios';
 import { useSelector } from 'react-redux'
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
   const [loading, setloading] = useState(false);
 
@@ -163,8 +163,8 @@ const Sidebar = () => {
             description:'',
             file:[]
           })
-          setIsModalOpen(false);
           props.getAllUserPost()
+          setIsModalOpen(false);
 
           setloading(false)
         }
